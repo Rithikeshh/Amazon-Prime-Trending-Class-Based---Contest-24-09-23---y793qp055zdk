@@ -17,7 +17,25 @@ class App extends Component {
     const { index, slides } = this.state;
 
     return (
-      <></>
+       <>
+        <h1 id="title">{slides[index].title}</h1>
+        <p id="text">{slides[index].text}</p>
+        <button id="button-prev" disabled={index == 0} onClick={()=>{
+          this.setState((prevValue)=>{
+            return {index : prevValue.index-1}
+          })
+        }}>Prev</button>
+        <button id="button-restart" onClick={()=>{
+          this.setState((prevValue)=>{
+            return {index : 0}
+          })
+        }}>Restart</button>
+        <button id="button-next" disabled={index == 4} onClick={()=>{
+          this.setState((prevValue)=>{
+            return {index : prevValue.index+1}
+          })
+        }}>Next</button>
+      </>
     );
   }
 }
